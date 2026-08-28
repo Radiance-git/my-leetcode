@@ -20,3 +20,33 @@ Walk both strings with a single index, appending one character from each at a ti
 
 - **Time:** O(n + m)
 - **Space:** O(n + m) for the output string
+
+### Solution
+```python
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+        result = []
+        i, j = 0, 0
+
+        while i < len(word1) and j < len(word2):
+            result.append(word1[i])
+            result.append(word2[j])
+            i += 1
+            j += 1
+
+        while i < len(word1):
+            result.append(word1[i])
+            i += 1
+        while j < len(word2):
+            result.append(word2[j])
+            j += 1
+
+        merged = ''.join(result)
+
+        return merged
+```
